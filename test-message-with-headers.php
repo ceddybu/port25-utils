@@ -1,1 +1,11 @@
-<?php $to = 'recipient@domain.com'; $subject = 'Hello from ceddybu at Rackspace'; $message = 'This is a test email message'; $headers = 'From: Cedric Bu <noreply@sender.com>' . "\r\n" . 'Sender: noreply@sender.com' . "\r\n" . 'Reply-To: Cedric Bu <staffing@sender.com>' . "\r\n" . 'X-Mailer: PHP/' . phpversion(); mail($to, $subject, $message, $headers, '-fnoreply@sender.com'); ?>
+<?php
+
+$to = 'corey@domain.com';
+$subject = 'Hello from ceddybu @ Rackspace';
+$message = 'This is a test email message';
+
+$headers = 'From: Cedric Bu <ceddybu@whodat.be>' . "\r\n" . 'Sender: ceddybu@whodat.be' . "\r\n" . 'Reply-To: Cedric Bu <admin@whodat.be>' . "\r\n" . 'X-Mailer: PHP/' . phpversion();
+
+mail($to, $subject, $message, $headers, '-fceddybu@whodat.be');
+
+?>
