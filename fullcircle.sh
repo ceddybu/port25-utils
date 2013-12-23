@@ -2,6 +2,7 @@
 
 # define some colors
 cyan='\033[1;36m'
+# a stupid comment
 green='\033[1;32m'
 red='\033[1;31m'
 nc='\033[0m'
