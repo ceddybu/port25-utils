@@ -17,7 +17,7 @@ fi
 ptr=`dig +short -x $ip`
 if [ -n "$ptr" ]
     then echo -e ${green}OK!${nc} The PTR record for $ip is ${cyan}$ptr${nc}; echo
-    else echo -e ${red}ptr lookup failed!; exit
+    else echo -e ${red}Fail! PTR lookup failed!; exit
 fi
 
 a=`dig +short a $ptr`
