@@ -23,5 +23,5 @@ fi
 a=`dig +short a $ptr`
 if [ $a = $ip ]
 	then echo -e "${green}OK!${nc} $ptr resolves to ${cyan}$a${nc}\n\n${green}FCrDNS established! Hooray!"
-	else echo -e "${red}FCrDNS checks failed!"
+	else echo -e "${red}FCrDNS checks failed! $ptr resolves to ${cyan}$a"
 fi
