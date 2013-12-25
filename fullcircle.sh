@@ -1,16 +1,13 @@
 #!/bin/bash
 set -e
 
-# define colors
 cyan='\033[1;36m'
 green='\033[1;32m'
 red='\033[1;31m'
 nc='\033[0m'
 
-# check for first argument
 if [ -n "$1" ]
 	then ip=$1; echo -e Checking ${cyan}$ip${nc} for FCrDNS...; echo
-	# curl the public ip
     else ip=`curl -s ipaddr.be`; echo -e $HOSTNAME\'s likely mailing ip is ${cyan}$ip${nc}; echo
 fi
 

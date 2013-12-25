@@ -8,9 +8,14 @@ Assortment of scripts to help linux administrators troubleshoot email issues.
 
 Converting this script from bash to python. 
 
-Uses
+### pip modules
 - requests
 - dns
+
+### Todo
+- Accept multiple ips & CIDRs as arguments to check. 
+- Specify nameserver
+- Email a pretty report
 
 ## fullcircle.sh
 
