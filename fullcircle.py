@@ -1,20 +1,17 @@
 #!/usr/bin/python
 
-import requests, socket
+import requests, socket, dns.resolver, dns.reversename, termcolor
 
 ip = requests.get('http://ipaddr.be')
 ip = ip.text.rstrip()
-print("Checking " + ip + " for FCrDNS")
+print("Checking"), termcolor.colored(ip, 'cyan', attrs=['bold']), ("for FCrDNS")
 
-from dns import resolver,reversename
-addr = reversename.from_address(ip)
-ptr = str(resolver.query(addr,"PTR")[0])
-print (str(addr) + " resolves to " + ptr)
+addr = str(dns.reversename.from_address(ip))
+ptr = str(dns.resolver.query(addr,"PTR")[0])
+print termcolor.colored('OK!', 'green', attrs=['bold']), (addr + " resolves to " + ptr)
 
-from dns import resolver
-a = str(resolver.query(ptr, 'A')[0])
-
+a = str(dns.resolver.query(ptr, 'A')[0])
 if a == ip:
-	print ("Success! FCrDNS established: " + ptr + " resolves to " + a)
+	print termcolor.colored('Success!', 'green', attrs=['bold']), ("FCrDNS established: " + ptr + " resolves to " + a)
 else:
 	print ("Failure! " + ptr + " resolves to " + a)
