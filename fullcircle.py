@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/bin/python
 
 import requests, socket
 
@@ -6,16 +6,15 @@ ip = requests.get('http://ipaddr.be')
 ip = ip.text.rstrip()
 print("Checking " + ip + " for FCrDNS")
 
-ptr = socket.gethostbyaddr(ip)
-#try:
-#  ptr
-#except NameError:
-#  print "There is a problem with the PTR record!"
-#else:
-print ("PTR for " + ip + " is " + (ptr)[0])
+from dns import resolver,reversename
+addr = reversename.from_address(ip)
+ptr = str(resolver.query(addr,"PTR")[0])
+print ("PTR record for " + ip + " is " + (ptr))
 
-a = socket.gethostbyname(ptr[0])
+from dns import resolver
+a = str(resolver.query((ptr), 'A')[0])
+
 if a == ip:
-	print ("Success! FCrDNS established: " + ptr[0] + " resolves to " + a)
+	print ("Success! FCrDNS established: " + ptr + " resolves to " + a)
 else:
-	print ("Failure! " + ptr[0] + " resolves to " + a)
+	print ("Failure! " + ptr + " resolves to " + a)
