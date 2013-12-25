@@ -9,7 +9,7 @@ print("Checking " + ip + " for FCrDNS")
 from dns import resolver,reversename
 addr = reversename.from_address(ip)
 ptr = str(resolver.query(addr,"PTR")[0])
-print ("PTR record for " + ip + " is " + ptr)
+print (str(addr) + " resolves to " + ptr)
 
 from dns import resolver
 a = str(resolver.query(ptr, 'A')[0])
