@@ -11,6 +11,7 @@ Just like the bash script but sexier.
 ### pip modules
 - requests
 - dns
+- termcolor
 
 ### Todo
 - Accept multiple ips & CIDRs as arguments to check. 
