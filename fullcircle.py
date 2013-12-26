@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import requests, socket, dns.resolver, dns.reversename, termcolor
+import requests, dns.resolver, dns.reversename, termcolor
 
 ip = requests.get('http://ipaddr.be')
 ip = ip.text.rstrip()
