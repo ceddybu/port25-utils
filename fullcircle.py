@@ -2,8 +2,7 @@
 
 import requests, dns.resolver, dns.reversename, termcolor
 
-ip = requests.get('http://ipaddr.be')
-ip = ip.text.rstrip()
+ip = requests.get('http://ipaddr.be').text.rstrip()
 print("Checking"), termcolor.colored(ip, 'cyan', attrs=['bold']), ("for FCrDNS")
 
 addr = str(dns.reversename.from_address(ip))
